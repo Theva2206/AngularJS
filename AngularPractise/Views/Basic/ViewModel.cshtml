@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewModel";
+}
+
+<h2>Views, Controllers and Scope</h2>
+<h3>Creating a View and Controller</h3>
+<div class="container" ng-controller="SimpleController">
+    <ul>
+        <li ng-repeat="cust in customers">
+            {{cust.name}} - {{cust.city}}
+        </li>
+    </ul>
+</div>
+
+
+@Scripts.Render("~/bundles/angularjs")
+@Scripts.Render("~/bundles/viewmodel")

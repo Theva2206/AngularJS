@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*ng-app added to the html tag*@
+@* ctrl + K + D - format code *@
+
+<div ng-controller="IndexController">
+    <h2>Using Directives and Data Binding Syntax</h2>
+    <br>
+
+    <div class="container">
+        <br />
+        Name: <input type="text" ng-model="name" />  {{name}}
+
+    </div>
+
+    <h3>Looping with the ng-repeat Directive</h3>
+    <div class="container" ng-init="names=['Dave','Napur','Heedy','Shriva']">
+        <pre> &lt;li ng-repeat="name in names"&gt; { {name}} &lt;/li&gt;</pre>
+        <ul>
+            <li ng-repeat="name in names">{{ name }}</li>
+        </ul>
+        <a href="https://docs.angularjs.org/tutorial/step_00">docs.angularjs.org - tutorial</a>
+    </div>
+
+    <h3>Using Filters</h3>
+
+    <div class="container" ng-init="customers=['Anish Shrestha','Joe Rhoak','Heedy Dany','Shriva Tree','Bijay Shrestha']">
+        <pre>ng-init="customers=['Anish Shrestha','Joe Rhoak','Heedy Dany','Shriva Tree','Bijay Shrestha']"</pre>
+        <pre>&lt;li ng-repeat="cust in customers | filter:'Shrestha' | orderBy:'name'"&gt;  { {cust}}&lt;/li&gt;</pre>
+        <ul>
+            <li ng-repeat="cust in customers | filter:'Shrestha' | orderBy:'name'">{{cust}}</li>
+        </ul>
+    </div>
+
+    <div class="container" ng-init="customersInfo=[{name:'Anish Shrestha',city:'Kathmandy'},{name:'Joe Rhoak',city:'Chicago'}]">
+        <pre> ng-init="customersInfo=[{name:'Anish Shrestha',city:'Kathmandy'},{name:'Joe Rhoak',city:'Chicago'}]"</pre>
+        <pre>&lt;li ng-repeat="custInfo in customersInfo |  orderBy:'name'"&gt;  { {custInfo.name}} - { {custInfo.city}}&lt;/li&gt;</pre>
+        <ul>
+            <li ng-repeat="custInfo in customersInfo |  orderBy:'name'">{{custInfo.name}} - {{custInfo.city}}</li>
+        </ul>
+    </div>
+
+    <h3>Search in a List of Customer</h3>
+    <div style="height:50px;" class="container" ng-init="allCustomer=[
+     {name:'Anish Shrestha',city:'Kathmandy'},
+     {name:'George',city:'Australia'},
+     {name:'Bijay Shrestha',city:'Lalitpur'},
+     {name:'Amrita Thokar',city:'Texas'}]">
+        Search: <input type="text" ng-model="search" />
+        <ul>
+            <li ng-repeat="filterCustomer in allCustomer | filter:search | orderBy:'name'">{{filterCustomer.name}} - {{filterCustomer.city}}</li>
+        </ul>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <a href="https://docs.angularjs.org/api/ng/filter">docs.angularjs.org - using filters</a>
+    <br />
+</div>
+@*@Scripts.Render("~/bundles/angularjs")*@
+@Scripts.Render("~/bundles/MainScripts")
+
+@*<script src="~/Scripts/Basic/Main/mainmodel.js"></script>*@

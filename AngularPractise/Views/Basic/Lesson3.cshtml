@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Modules, Routes and Factories";
+}
+
+<h2>Modules, Routes and Factories</h2>
+<div>
+    <div ng-view=""></div>
+    <br />
+    <a href="#/">Create</a>
+    <a href="#/Filter">Filter</a>
+</div>
+
+
+@Scripts.Render("~/bundles/angularjs")
+<script src="~/Scripts/angular-route.js"></script>
+@Scripts.Render("~/bundles/lesson3")
