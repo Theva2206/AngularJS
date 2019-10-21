@@ -45,8 +45,16 @@ namespace AngularPractise
             //bundles.Add(new StyleBundle("~/bundles/MainScripts").Include(
             //     "~/Scripts/Basic/Main/mainmodel.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/MainScripts")
-                .IncludeDirectory("~/Scripts/Basic/Main", "*.js", true));
+            //bundles.Add(new ScriptBundle(@"~/bundles/MainScripts")
+            //    .IncludeDirectory(@"~/Scripts/Basic/Main", "*.js")
+            //    .IncludeDirectory("@~/Scripts/Basic/Main/SubFolder", "*.js")
+            //    );
+
+            bundles.Add(new Bundle("~/bundles/MainScripts")
+                .IncludeDirectory(@"~/Scripts/Basic/Main/SubFolder", "*.js")
+                .IncludeDirectory(@"~/Scripts/Basic/Main", "*.js")
+                );
+
         }
     }
 }
